@@ -1,0 +1,22 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Books";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Books</h1>
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li>
+                <a asp-controller="Book" asp-action="Book" asp-route-id="@book.Id">
+                <h2>@book.Title</h2>
+                </a>
+                <p>By @book.Author.Name</p>
+                <img src="@book.CoverImageUrl", alt="@book.Title cover">
+                <p class="blurb">@book.Blurb</p>
+            </li>
+        }
+    </ul>
+    
+</div>

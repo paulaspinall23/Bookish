@@ -1,0 +1,34 @@
+﻿@model List<Author>
+@{
+    ViewData["Title"] = "Authors";
+}
+
+
+<h1>Authors</h1>
+<ul style="display: flex;">
+    @foreach (var author in Model)
+    {
+        <li class="card" style="width: 18rem;">
+            <img 
+                class="card-img-top"
+                src="@author.PhotoUrl" 
+                alt="@author.Name" 
+                width="200"
+            >
+            <div class="card-body">
+                <h2 class="card-title"><em>@author.Name</em></h2>
+                <p class="card-header">Books:</p>
+                <ul class="list-group list-group-flush">
+                    @foreach (var book in author.Books)
+                    {
+                        <li class="list-group-item">
+                            @book.Title
+                        </li>
+                    }
+                </ul>
+            </div>
+        </li>
+    }
+</ul>
+    
+

@@ -15,4 +15,14 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: lightblue;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.blurb {
+  padding-top: 10px;
+  padding-bottom: 30px;
 }

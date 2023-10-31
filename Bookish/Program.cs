@@ -1,7 +1,10 @@
+using Bookish;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<BookishDbContext>();
 
 var app = builder.Build();
 
@@ -25,3 +28,17 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+// using Bookish;
+// using Microsoft.EntityFrameworkCore;
+
+// var dbContext = new BookishDbContext();
+// //var books = dbContext.Books.ToList();
+// var books = dbContext.Books
+//     .Include(b => b.Author)
+//     .ToList();
+// foreach (var book in books)
+// {
+//     //Console.WriteLine(book.Title);
+//     Console.WriteLine($"{book.Title}: By {book.Author.Name}");
+// }
